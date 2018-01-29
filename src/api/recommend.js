@@ -46,8 +46,7 @@ export function getDissList(disstid) {
     platform: 'yqq',
     hostUin: 0,
     needNewCode: 0,
-    jsonp: 'playlistinfoCallback'
-    // jsonpCallback: 'playlistinfoCallback'
+    g_tk:5381,
   })
 
   return jsonp(url, data, options)

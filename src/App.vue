@@ -13,8 +13,6 @@
   import MHeader from 'components/m-header/m-header'
   import Tab from 'components/tab/tab'
   import Player from 'components/player/player'
-  console.log(Player)
-
   export default {
     components: {
       MHeader,

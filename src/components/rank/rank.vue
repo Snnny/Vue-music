@@ -41,7 +41,6 @@
     },
     methods: {
       selectItem(item) {
-        console.log(item)
         this.$router.push({
           path: `/rank/${item.id}`
         })

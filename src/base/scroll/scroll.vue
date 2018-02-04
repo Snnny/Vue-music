@@ -36,7 +36,7 @@
       refreshDelay: {
         type: Number,
         default: 20
-      }
+      },
     },
     mounted() {
       setTimeout(()=> {
@@ -56,6 +56,13 @@
           let vm = this  
           this.scroll.on('scroll', pos=> {
             vm.$emit('scroll', pos)
+          })
+        }
+        if (this.pullup) {
+          this.scroll.on('scrollEnd', () => {
+            if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
+              this.$emit('scrollToEnd')
+            }
           })
         }
       },

@@ -1,6 +1,6 @@
 <template>
   <transition name="drop">
-    <music-list :songs="songs" :title="title" bgImage="bgImage"></music-list>
+    <music-list :songs="songs" :title="title" :rank="rank" bgImage="bgImage"></music-list>
   </transition>
 </template>
 
@@ -14,7 +14,8 @@ import {createSong} from 'common/js/song'
   export default {
     data() {
       return {
-        songs: []
+        songs: [],
+        rank: true
       }
     },
     created() {
@@ -22,6 +23,10 @@ import {createSong} from 'common/js/song'
     },
     methods: {
       _getMusicList() {
+         if(!this.toplist.id) {
+          this.$router.push({ path: '/rank' })
+          return
+        }
         getMusicList(this.toplist.id)
           .then(res=> {
             if(res.code === ERR_OK) {

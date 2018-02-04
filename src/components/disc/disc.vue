@@ -22,6 +22,10 @@
     },
     methods: {
       _getSongList() {
+        if(!this.disc.dissid) {
+          this.$router.push({ path: '/recommend' })
+          return
+        }
         getDissList(this.disc.dissid)
           .then(data=> {
             if(data.code === ERR_OK) {
